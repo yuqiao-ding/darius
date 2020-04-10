@@ -29,12 +29,19 @@ Route::prefix('delete')->group(function () {
     Route::get('insert', 'DeleteController@insert');
 });
 
-Route::prefix('add')->group(function () {
-    Route::get('insert', 'UsersInfoController@insert');
+Route::prefix('home')->group(function () {
+    Route::get('index', 'UsersInfoController@index');
+    Route::post('plus', 'UsersInfoController@plus');
 });
+Route::resource('index', 'UsersInfoController');
+Route::resource('plus', 'UsersInfoController');
 
-Route::get('/test', 'TestController@index');
-Route::get('/home/test/test', 'TestController@test');
+// Route::get('/test', 'TestController@index');
+// Route::get('/home/test/test', 'TestController@test');
+Route::prefix('home')->group(function () {
+    Route::get('test', 'TestController@test');
+});
+Route::resource('test', 'TestController');
 
 // Route::get('user/{id}', function ($id) {
 //     return 'User '.$id;
@@ -77,14 +84,14 @@ Route::get('search/{search}', function ($search) {
 
 Route::get('user/{id}', 'UserController@show');
 
-Route::get('/home/test/test6', 'TestController@test6');
-Route::post('/home/test/test7', 'TestController@test7') ->name('test7');
+// Route::get('/home/test/test6', 'TestController@test6');
+// Route::post('/home/test/test7', 'TestController@test7') ->name('test7');
 
-Route::any('/home/test/test8', 'TestController@test8') ->name('test8');
-Route::get('/home/test/test9', 'TestController@test9');
-Route::get('/home/test/test10', 'TestController@test10');
-Route::get('/home/test/test11', 'TestController@test11');
-Route::get('/home/test/test12', 'TestController@test12');
-Auth::routes();
+// Route::any('/home/test/test8', 'TestController@test8') ->name('test8');
+// Route::get('/home/test/test9', 'TestController@test9');
+// Route::get('/home/test/test10', 'TestController@test10');
+// Route::get('/home/test/test11', 'TestController@test11');
+// Route::get('/home/test/test12', 'TestController@test12');
+// Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+// Route::get('/home', 'HomeController@index')->name('home');

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use App\Http\Controllers\JsonResponseTrait;
+use Log;
 
 class UsersInfoController extends Controller
 {
@@ -221,5 +223,31 @@ class UsersInfoController extends Controller
 
         ];
         DB ::table('usersinfo')->insert($insertData);
+    }
+    public function index()
+    {
+        $users = DB::table('usersinfo')->get();
+        // Log::info($users);
+        return response()->json(['users'=>$users]);
+        dd($users);
+        
+    }
+    
+    public function plus(Request $request)
+    {
+      
+      $data['id'] =$request->input('id');
+      $data['name'] =$request->input('name');
+      $data['phone'] =$request->input('phone');
+      $data['email'] =$request->input('email');
+      $data['created_at'] =$request->input('created_at');
+      $data['address'] =$request->input('address');
+      $data['age'] =$request->input('age');
+
+      
+      DB::table('usersinfo')->insert($data);
+
+      
+
     }
 }

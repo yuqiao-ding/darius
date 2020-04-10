@@ -15,7 +15,7 @@ class TestController extends Controller
     }
     public function test()
     {
-        $data = DB ::table('jjj') -> get();
+        $data = DB ::table('usersinfo') -> get();
         $day = date('N');
         return view('home.test.test',compact('data','day'));
     }
