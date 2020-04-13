@@ -14,7 +14,9 @@ class VerifyCsrfToken extends Middleware
     protected $except = [
         //
         'home/test/test7',
-        'home/plus'
+        'home/plus',
+        'home/delete',
+        'home/update'
         
     ];
 }

@@ -30,11 +30,16 @@ Route::prefix('delete')->group(function () {
 });
 
 Route::prefix('home')->group(function () {
+    Route::get('insert', 'UsersInfoController@insert');
     Route::get('index', 'UsersInfoController@index');
     Route::post('plus', 'UsersInfoController@plus');
+    Route::post('delete', 'UsersInfoController@delete');
+    Route::post('update', 'UsersInfoController@update');
 });
 Route::resource('index', 'UsersInfoController');
 Route::resource('plus', 'UsersInfoController');
+Route::resource('delete', 'UsersInfoController');
+Route::resource('update', 'UsersInfoController');
 
 // Route::get('/test', 'TestController@index');
 // Route::get('/home/test/test', 'TestController@test');
